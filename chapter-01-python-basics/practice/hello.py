@@ -40,3 +40,20 @@ print(len(my_name))
 print("What is your age")
 my_age = input('->')
 print('You Will be ' + str(int(my_age) + 1) + ' in a year.')
+
+
+# type()
+print(type(23))
+print(type(22.32))
+print(type("yash"))
+print(len("yashraj"))
+
+# round() take float and returns nearest even integer
+num = round(3.5)
+num1 = round(2.5,1)
+print(num1)
+print(num)
+
+# abs() in maths it is distance from 0 and return positive number
+print(abs(-323.23))
+print(abs(0))
