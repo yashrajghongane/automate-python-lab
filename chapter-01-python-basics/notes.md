@@ -52,7 +52,7 @@ bacon = 20
 bacon + 1
 
 Ans :-
-Variable bacon will become 21
+Variable bacon = 21
 ----------------------------------------------------------------------------
 
   7.  What should the following two expressions evaluate to?
