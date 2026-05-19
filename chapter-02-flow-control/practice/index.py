@@ -9,3 +9,14 @@ if user_name == "Yashraj":
         print("Access Granted.")    
     else:
         print("Wrond Password.")
+
+
+# Boolean Values
+spam = True
+notspam = False
+if spam:
+    print("This is spam.")
+if notspam:
+    print("This is not spam.")
+
+
