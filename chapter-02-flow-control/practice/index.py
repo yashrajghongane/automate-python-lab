@@ -19,6 +19,15 @@ if spam:
 if notspam:
     print("This is not spam.")
 
+# else keyword
+name = 'Carol'
+age = 3000
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age < 12:
+    print('You are not Alice, kiddo.')
+else:
+    print('You are not either Alice or Kiddo.')
 
 # elif Keyword
 name = 'Carol'
@@ -27,6 +36,7 @@ if name == 'Alice':
     print('Hi, Alice.')
 elif age < 12:
     print('You are not Alice, kiddo.')
-else:
-    print('You are neither Alice nor a little kid.')
-
+elif age > 100:
+    print('You are not Alice, grannie.')
+elif age > 2000:
+    print('Unlike you, Alice is not an undead, immortal vampire.')
