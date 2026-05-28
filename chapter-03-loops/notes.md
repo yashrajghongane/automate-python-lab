@@ -4,14 +4,13 @@ Ans. Ctrl + C
 ___
 
 ## 2.  What is the difference between break and continue?
-Ans. 1. break will exit the loop when loop meets certain condition. \
-     2. continue will goes back to start of the loop when loop meets certain condition.
-___
+Ans. 1. break will exit the loop completely when loop meets certain condition. \
+     2. continue skips the current iteration and moves to next iteration.
 
 ## 3.  What is the difference between range(10), range(0, 10), and range(0, 10, 1) in a for loop?
-Ans. 1. range(10) -> for loop will continue iteration in upto (0,9) \
-     2. range(0,10) -> for loop start with 0 and ends with 9 \
-     3. range(0,10,1) -> for loop start with 0 , ends with 9 and incresed the iteration by 1 each time.
+Ans. 1. range(10) -> start at 0 by default \
+     2. range(0,10) -> explicitly start at 0 and ends brefore 10\
+     3. range(0,10,1) -> explicitly start at 0, ends before 10 and increased by 1.
 ___
 
 ## 4.  Write a short program that prints the numbers 1 to 10 using a for loop. Then, write an equivalent program that prints the numbers 1 to 10 using a while loop.
