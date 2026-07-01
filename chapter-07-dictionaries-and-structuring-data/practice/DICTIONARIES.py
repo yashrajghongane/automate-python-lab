@@ -17,3 +17,19 @@ cat1 = {'name':'kitty','age':9,'color':'white' }
 cat2 = {'age':9,'name':'kitty','color':'white'}
 print(cat1 == cat2)
 
+print()
+# Returning Keys and Values
+# Values
+for v in cat1.values():
+    print(v)
+
+print()
+# Keys
+for k in cat1.keys():
+    print(k)
+
+print()
+# Items (both key and values)
+for i in cat2.items():
+    print(i)
+
