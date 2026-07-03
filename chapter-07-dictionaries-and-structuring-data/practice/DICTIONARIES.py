@@ -54,3 +54,108 @@ print(f"I am bringing {picninc_items.get('eggs',3)} eggs. ")
 
 print(f"I am bringing {picninc_items.setdefault("bottle",1)}") # 'bottle' : 1
 print(f"I am bringing {picninc_items.setdefault("bottle",2)}") # 'bottle' : 1 this time it dose not set default value as 2 beacuse the key bottle is exits in dict.
+print(picninc_items)
+
+print()
+# Nested Dict 
+game_characters = {
+    "player1" : {
+        "name": "Yashraj",
+        "role": "warrior",
+        "health": 100
+    },
+    "player2": {
+        "name": "Rahul",
+        "role": "Wizard",
+        "health": 65
+    }
+}
+
+# Accesing values from nested loop using two sets of square breakets side by side [][]
+# Step 1:  open the the player2 door
+# Step 2: grab their role 
+
+Rahul_role = game_characters['player2']['role']
+print(Rahul_role)
+
+# add and update nested dict
+
+game_characters['player1']["health"] = 70 # point the player1 health and update the value
+game_characters['player2']["attack"] = 78 # add new key attack with value 78
+
+print(game_characters['player1']["health"])
+print(game_characters['player2'])
+
+# showing all the data usinf .item()
+
+for player_id, stats in game_characters.items():
+    print(f"_____ Stats for {player_id} _____")
+    
+    for key,value in stats.items():
+        print(f"{key}: {value}")
+
+
+print()
+# Lists of Dict
+
+students = [
+    {"name": "yashraj","age": 18, "grade": "A+"},
+    {"name": "rahul","age": 21, "grade": "B+"},
+    {"name": "sachin","age": 12, "grade": "A+"}
+]
+
+# how to accessing values (Using [index]['key'])
+# add or updadte 
+new_student = {"name": "alice","age": 20, "grade": "B"} # add new dict to list student
+students.append(new_student)
+
+students[0]["age"] = 19
+students[0]["performance"] = "Excellent"
+
+# how to Loop thourgh whole stack 
+
+for student in students:
+    print(f"{student["name"]} is {student["age"]} years old and gets an {student["grade"]}")
+
+
+print()
+# dict conting list
+
+report_card = {
+    "maths":[],
+    "science": [23,32,43],
+    "history": [43,56,77]
+}
+
+# accesing list inside dict
+science_marks = report_card["science"][0]
+print(science_marks)
+
+# add or update information
+report_card["maths"].append(90)
+print(report_card["maths"][0])
+
+report_card["maths"][0] = 50
+print(report_card["maths"][0])
+
+report_card["Art"] = [100,60]
+print(report_card["Art"][1])
+
+# How to loop throught it
+
+for subject,scores in report_card.items():
+    avrage = sum(scores) / len(scores)
+    print(f"In {subject} the scores are {scores}. Average: {avrage:.1f} ")
+
+# dict.pop method on dict
+# this method delete the key and grab the value (return the value of deleted key)
+
+cat3 = {'name':'kitty','age':9,'color':'white' }
+removede_feature = cat3.pop("color", "not found")
+print(removede_feature)
+print(cat3)
+
+# dict.clear()
+# this method maked dict empty and live it {}
+cat3.clear()
+print(cat3) # output {}
