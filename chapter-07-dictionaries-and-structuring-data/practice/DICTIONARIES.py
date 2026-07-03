@@ -33,3 +33,24 @@ print()
 for i in cat2.items():
     print(i)
 
+print()
+# we can also use multiple assignment trick in for loop to assign key and value in sperate varibales
+
+for k, v in cat1.items():
+    print("Key: " + str(k), "Value: " + str(v))
+    
+print()
+# Checking Whether a Key Exists or not if key not exits we can return defalut value using get() method.
+# dict.get('key',default value)
+picninc_items = {"apples":4 , " cups": 2}
+print(f"I am bringing {picninc_items['apples']} apples. ")
+print(f"I am bringing {picninc_items[' cups']} Cups. ")
+print(f"I am bringing {picninc_items.get('eggs',3)} eggs. ")
+
+# setdefault() method 
+# if we dont know that key is exits or not in thedict we can use setdefault() ,this method take first arg as key and Second as values 
+# if the key doesnt exits this method add that key and set value for that key
+# once the key added by setDefault method then can not set value again for that key again beacuse method checks if key exits or not and then assign value 
+
+print(f"I am bringing {picninc_items.setdefault("bottle",1)}") # 'bottle' : 1
+print(f"I am bringing {picninc_items.setdefault("bottle",2)}") # 'bottle' : 1 this time it dose not set default value as 2 beacuse the key bottle is exits in dict.
