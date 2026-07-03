@@ -25,7 +25,8 @@ def add_task():
     new_task = {
         "task_id": task_id,
         "task" : add_task,
-        "Task_group": g_task
+        "task_group": g_task,
+        "status": False
     }
     task_db["tasks"].append(new_task)
     print(f"TasK Added with Task id No of {task_id}")
@@ -35,11 +36,64 @@ def add_task():
 def show_task():
     if len(task_db["tasks"]) == 0:
         print("No Task Avaible. ")
-    
-    print("1. Show all Tasks")
+    else:
+        print(end =" ")
+        print("\n 1. Show all Tasks. \n 2. Show Completed Tasks. \n 3. Show incompleted Tasks. \n 4. Show by Groups")
+        print(end=" ")
+        while True:
+            try:
+                print(end=" ")
+                choice = int(input(" Enter the You choice : "))
+            except ValueError:
+                print("You have Entered Invalid Choice, Try Again! ")
+                print()
+                continue
+            if choice == 1:
+                try:
+                    print(end="  ")
+                    sort_order = int(input(" Select Sort Order \n 1. Assending \n 2. Dessending -> "))
+                    if sort_order == 1:
+                        sort = True
+                    elif sort_order == 2:
+                        sort = False
+                    else:
+                        print("You have Entred wrong option, Try again.")
+                        continue
+                    if sort != False:
+                        print(end=' ')
+                        print("All Tasks: ")
+                        for task in task_db["tasks"]:
+                             print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]} \n Group : {task["task_group"]} \n Status : {task["status"]}")  
 
-    for task in task_db["tasks"]:
-        print(task)
+                        break
+                    else:
+                        reversed_task = task_db["tasks"]
+                        reversed_task.reverse()
+                        print(end=' ')
+                        print("All Tasks: ")
+                        for task in reversed_task:
+                            print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]} \n Group : {task["task_group"]} \n Status : {task["status"]}")  
+                        break
+                except TypeError as err:
+                    print("You have Entred wrong option, Try Again.")
+                    print(err)
+                    break
+                print()
+            elif choice == 2:
+            
+                print()
+            elif choice == 3:
+            
+                print()
+            elif choice == 4:
+            
+                print()
+            else:
+                print("You have Entered Invalid Choice, Try Again! ")
+                print()
+                continue
+
+    
 
 # While loop for keep app runnig
 while True:
@@ -49,6 +103,7 @@ while True:
     print("4. Update Task")
     print("5. Delete Task.")
     print("6. Exit. ")
+    print()
     try:
         choice = int(input("Enter the You choice : "))
     except ValueError:
