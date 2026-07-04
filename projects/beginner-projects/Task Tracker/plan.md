@@ -23,8 +23,7 @@ ____
 1. error handling
 2. add/update/delete tasks
 3. check task completion status
-4. can orgnize task into groups
-5. have filter option in while showing tasks
+4. have filter option in while showing tasks
 ```
 ___
 
@@ -45,8 +44,7 @@ Tasks -
         Sort by (assending or decending order)
 2. Show Completed Tasks 
 3. Show incompleted Task
-4. Show by Groups
-    "Task" , Group Status
+
 
 Enter the option -> 
 _____
@@ -62,7 +60,6 @@ Select the optioin -> 3
         Sort by (assending or decending order)
 2. Show Completed Tasks 
 3. Show incompleted Task
-4. Show by Groups
 
     Enter the Task Id No. -> 
     Select the Stutus - 
@@ -72,11 +69,7 @@ ___
 
 Select the option -> 4
     Shows the tasks as per above
-    Select the task_id - update
-    Select the group it should task have -
-        1. group_1
-        2. group_2
-    Upadate group 
+    Select the task_id - update the status
 ____
 
 Select the option -> 5
