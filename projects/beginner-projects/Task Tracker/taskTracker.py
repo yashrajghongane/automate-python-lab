@@ -22,12 +22,10 @@ def task_id_gen():
 # add task fun()
 def add_task():
     add_task = input("Enter the Task -> ")
-    g_task = input("Enter the Group of Task -> ")
     task_id = task_id_gen()
     new_task = {
         "task_id": task_id,
         "task" : add_task,
-        "task_group": g_task,
         "status": False
     }
     task_db["tasks"].append(new_task)
@@ -50,7 +48,7 @@ def sort_task(task_input):
                 print(end='\n ')
                 print("All Tasks: ")
                 for task in tasks:
-                    print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]} \n Group : {task["task_group"]} \n Status : {task["status"]}")  
+                    print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]} \n Status : {task["status"]}")  
                 # break
             else:
                 reversed_task = tasks
@@ -58,7 +56,7 @@ def sort_task(task_input):
                 print(end=' ')
                 print("All Tasks: ")
                 for task in reversed_task:
-                    print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]} \n Group : {task["task_group"]} \n Status : {task["status"]}")  
+                    print(f" \n Task Id : {task["task_id"]} \n Task : {task["task"]}  \n Status : {task["status"]}")  
                 # break
         except TypeError as err:
                         print("You have Entred wrong option, Try Again.")
@@ -79,6 +77,7 @@ def task_status(status):
         return task_db["incompleted_tasks"]
     else:
         print("No Tasks Avaible ")
+        return None
 
 
 # Function for showing tasks
@@ -101,17 +100,17 @@ def show_tasks():
             print()
         elif choice == 2:
             complete_tasks = task_status(True)
-            if len(complete_tasks) != 0:
-                sort_task(complete_tasks)
+            if len(complete_tasks) == 0:
+                print("No Task Available ")
             else:
-                print("No Tasks Available ")
+                sort_task(complete_tasks)
             print()
         elif choice == 3:
             incomplete_tasks = task_status(False)
-            if len(incomplete_tasks) != 0:
-                sort_task(incomplete_tasks)
+            if len(incomplete_tasks) == 0:
+               print("No Tasks Available ")
             else:
-                print("No Tasks Available ")
+                sort_task(incomplete_tasks)
             print()
         else:
             print("You have Entered Invalid Choice, Try Again! ")
@@ -124,21 +123,65 @@ def update_task_status():
     else:
         show_tasks()
         try:
-            task_id_u = int(input("Enter the Task id From Above Tasks To Update -> "))
+            task_id_u = int(input("Enter the Task id To Update Task Status -> "))
             print()
-            print(" 1. Completed \n 2. Incompleted ")
-            choice = int(input("Enter the Task Status -> "))
-            if choice == 1:
-               new_status = True
-            elif choice == 2:
-                new_status = False
-            else:
-                print("You Have Seletec Wrong option try again! ")
+            
             for task in task_db["tasks"]:
                 if task["task_id"] == task_id_u:
+                    print(" 1. Completed \n 2. Incompleted ")
+                    choice = int(input("Enter the Task Status -> "))
+                    if choice == 1:
+                        new_status = True
+                    elif choice == 2:
+                        new_status = False
+                    else:
+                        print("You Have Seletec Wrong option try again! ")
                     task["status"] = new_status
                     print(end=" ")
+                    print("Task Status Updated ...")
+                    print()
+                    break
+                else:
+                    print(" Entered Task Id Not Found. ")
+        except ValueError:
+                print("You have Entered Invalid Choice, Try Again! ")
+                print()
+
+# Upadte Task
+def update_task():
+    if len(task_db["tasks"]) == 0:
+        print("No Task Avaible. ")
+    else:
+        show_tasks()
+        try:
+            task_id_u = int(input("Enter the Task id To Update Task -> "))       
+            for task in task_db["tasks"]:
+                if task["task_id"] == task_id_u:
+                    new_task = input("Enter the New Task -> ")
+                    task["task"] = new_task
+                    print(end=" ")
                     print("Task Updated...")
+                    print()
+                    break
+                else:
+                    print(" Entered Task Id Not Found. ")
+        except ValueError:
+                print("You have Entered Invalid Choice, Try Again! ")
+                print()
+
+# Function for deleting Task
+def delete_task():
+    if len(task_db["tasks"]) == 0:
+        print("No Task Avaible. ")
+    else:
+        show_tasks()
+        try:
+            task_id_u = int(input("Enter the Task id To Delete Task -> "))       
+            for task in task_db["tasks"]:
+                if task["task_id"] == task_id_u:
+                    del task
+                    print(end=" ")
+                    print("Task deleted....")
                     print()
                     break
                 else:
@@ -170,10 +213,10 @@ while True:
         print()
     elif choice == 3:
         update_task_status()
-    # elif choice == 4:
-    #     update_task()
-    # elif choice == 5:
-    #     del_task()
+    elif choice == 4:
+        update_task()
+    elif choice == 5:
+        delete_task()
     elif choice == 6:
         break
     else:
