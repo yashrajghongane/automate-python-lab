@@ -5,9 +5,9 @@ print("_" * 20,end="\n")
 print()
 
 task_db = {
-    "tasks": [],
-    "completed_tasks":[],
-    "incompleted_tasks" : []
+    "tasks": [], #Store all tasks
+    "completed_tasks":[], #store all completed tasks
+    "incompleted_tasks" : [] # store all incompleted tasks
 }
 
 # a function that crates taskID on the basis of when they are added
