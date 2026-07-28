@@ -194,3 +194,55 @@ print()
 # we call the join method on string and pass it a list of string and it returns the concatenation of each string in the passed-in list.
 print(", ".join(["cats","dogs","bats"]))
 print(' '.join(['My', 'name', 'is', 'Simon']))
+print()
+
+# the spit() works the opposite way : we call it on string and it returns a list of strings 
+print('My name is Simon'.split())
+
+# split() works excat opposite to join() 
+# we call split() on string valus, and it will returns a list of strings
+# comman use of split is to - 
+spam = '''Dear alice,
+There is a milk bottle in the fridge
+that is labeled "Milk Experiment."
+Please do not dirnk it.
+Sincerely,
+Yashraj
+'''
+new_spam = spam.split("\n")
+print(new_spam)
+print()
+
+
+# Justifying and Centering Text
+# The rjust() and ljust() returns a padded version of the string on which they are called. with spaces inserted to justy the text.
+# The first argument to both methods is an integer length for the justified string
+print("Hello".rjust(10))
+print("Hello".rjust(9))
+
+# this rjust(10) and ljust(10) means that they are with justify towords the left ro right side of string with total length of 10 
+# means that length of string "Hello" is 5 , so five spaces will be added to its left
+# The Second argument to rjust() and ljust() will spacify to fill charcter other than space
+print("Hello".rjust(10,"_"))
+print("Helllo".ljust(10,"-"))
+print()
+
+# Center()
+# The center() string method works like ljust() and rjust() but centers the text, rather than justifying it to the left or right
+print("Hello".center(20))
+print("Hello".center(20,"_"))
+print()
+
+# Removing Whitespace
+"""Sometimes you may want to strip off whitespace characters (spaces, tabs, and newlines) from the left side, right side, or both sides of a string. 
+The strip() string method will return a new string without any whitespace characters at the beginning or end,
+while the lstrip() and rstrip() methods will remove whitespace characters from the left and right ends, respectively
+"""
+# This methods returns new string without any whitespace characters at beginning and end.
+say_hello = "   Hello, world!   "
+new_hello = say_hello.strip()
+print(new_hello)
+new_hello_r = say_hello.strip()
+print(new_hello_r)
+new_hello_l = say_hello.strip()
+print(new_hello_l)
