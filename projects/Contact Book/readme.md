@@ -30,4 +30,8 @@ Contact Book/
 * App can Take contacts from User
 * App can Show all contacts from Contact Book
 * App Can Clear all Contact book with call Contacts Once.
-* 
+
+## Founded bugs Needed to Fixed
+* Id genration logic has a flaw ( after deltion of user id it cotinues that id  )
+* Need to upadate ID genraiton logic with a correct deletion fun
+* also have to fix view fun for showing ID to user

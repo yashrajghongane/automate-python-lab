@@ -43,7 +43,7 @@ def add_contact():
         add_contact()
 
     add_dict = {
-        "id":{current_id},
+        "id":current_id,
         "name": name,
         "number":number,
         "email":email
