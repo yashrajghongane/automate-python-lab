@@ -23,3 +23,11 @@ Contact Book/
 ├── contacts.py
 ├── Contacts.json
 └── readme.md
+
+
+## Current Progress
+### Version - V1
+* App can Take contacts from User
+* App can Show all contacts from Contact Book
+* App Can Clear all Contact book with call Contacts Once.
+* 
