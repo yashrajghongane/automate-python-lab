@@ -27,20 +27,38 @@ def main():
         else:
             print("Invalid choice. Please try again.")
 
-def add_contact():
-    try:
-        # check_current id's in user list
-        id_count = len(users_list)
-        # then current id 
-        current_id = id_count + 1
-
-        #Ask User for Name , No and Email
+def ask_name():
         name = input("Enter The your Name : ")
-        number = int(input("Enter the your Number : "))
+        return name
+
+def ask_number():
+    while True:
+        number = input("Enter the your Number : ")
+        if number.isdigit() and len(number) == 10:
+            return number
+        else:
+            print("Invalid Number, Enter Valid Number.")
+
+def ask_email():
+    while True:
+        global email
         email = input("Enter the your Email : ")
+        if "@" in email and "." in email:
+            return email
+        else:
+            print("Invalid Email Enter The correct Email")
+
+def add_contact():
+    # check_current id's in user list
+    id_count = len(users_list)
+    # then current id 
+    current_id = id_count + 1
+    try:
+        name = ask_name()
+        number = ask_number()
+        email = ask_email()
     except ValueError as e:
         print(e)
-        add_contact()
 
     add_dict = {
         "id":current_id,
