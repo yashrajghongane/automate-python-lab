@@ -8,7 +8,7 @@ def main():
         print("1. Add Contact")
         print("2. View Contacts")
         print("3. Clear All Contact")
-        #print("4. Delete Contact")
+        print("4. Delete Contact")
         print("5. Exit")
 
         choice = input("Enter your choice (1-5): ")
@@ -19,8 +19,8 @@ def main():
             view_contacts()
         elif choice == '3':
             clear_list()
-        #elif choice == '4':
-            #delete_contact()
+        elif choice == '4':
+            delete_contact()
         elif choice == '5':
             print("Exiting the Contact Book. Goodbye!")
             break
@@ -41,7 +41,6 @@ def ask_number():
 
 def ask_email():
     while True:
-        global email
         email = input("Enter the your Email : ")
         if "@" in email and "." in email:
             return email
@@ -72,7 +71,7 @@ def add_contact():
 def view_contacts():
     if users_list:
         for user in users_list:
-            print(f"Name : {user['name']} , Number : {user['number']} , Email : {user['email']}")
+            print(f" ID : {user['id']} , Name : {user['name']} , Number : {user['number']} , Email : {user['email']}")
     else:
         print("There is Not any Contacts Are avaible")
 
@@ -82,5 +81,20 @@ def clear_list():
     users_list = []  
     print("All contacts have been cleared!")
 
+def delete_contact():
+    while True:
+        try:
+            id_del = int(input("Enter ID to Delete : "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid numerical ID.")
 
+    for user in users_list:
+        if user['id'] == id_del:
+            users_list.remove(user)
+            print(f"User with ID {id_del} has been removed.")
+            break
+        
+    else:
+        print(f"No user found with ID {id_del}")
 main()
