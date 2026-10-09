@@ -1,7 +1,29 @@
- #Contact Temp Storege in List Of Dict
+ #Contact Temp Storege in JSON
+from pathlib import Path
+import json
+
+SCRIPT_DIR = Path(__file__).parent
+CONTACT_file = SCRIPT_DIR / "Contact.json"
+
 users_list = []
+next_id = 1
+
+def save_contacts():
+        with open(CONTACT_file,mode="w" , encoding='utf-8') as file:
+            json.dump(users_list,file,indent=4)
+        print("Contact saved!")
+
+def load_contacts():
+    global users_list
+    try:
+        with open(CONTACT_file,mode="r" , encoding='utf-8') as file:
+            users_list = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        users_list = []
+
 
 def main():
+    load_contacts()
     print("Welcome to the Contact Book!")
     while True:
         print("\nMenu:")
@@ -48,10 +70,10 @@ def ask_email():
             print("Invalid Email Enter The correct Email")
 
 def add_contact():
-    # check_current id's in user list
-    id_count = len(users_list)
+    global next_id
     # then current id 
-    current_id = id_count + 1
+    current_id = next_id
+    next_id += 1
     try:
         name = ask_name()
         number = ask_number()
@@ -67,6 +89,7 @@ def add_contact():
     }
     users_list.append(add_dict)
     print("Contact added..")
+    save_contacts()
 
 def view_contacts():
     if users_list:
@@ -77,9 +100,11 @@ def view_contacts():
 
 def clear_list():
     """Clears all contacts from the global list."""
-    global users_list  
+    global users_list, next_id
     users_list = []  
+    next_id = 1
     print("All contacts have been cleared!")
+    save_contacts()
 
 def delete_contact():
     while True:
@@ -94,7 +119,7 @@ def delete_contact():
             users_list.remove(user)
             print(f"User with ID {id_del} has been removed.")
             break
-        
     else:
         print(f"No user found with ID {id_del}")
+    save_contacts()
 main()
